@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servidor estático</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/main.js" defer></script>
+  </head>
+  <body>
+    <main class="card">
+      <p class="eyebrow">Express + public</p>
+      <h1>Página principal</h1>
+      <p>
+        Esta página se sirve desde la carpeta <strong>public</strong> con
+        <code>express.static</code> y desde aquí puedes ir al formulario.
+      </p>
+      <nav style="margin-top: 1rem;">
+        <a href="/contacto">Ir al formulario de contacto</a>
+        | <a href="/productos.html">Ver productos (API)</a>
+      </nav>
+      <button id="button" type="button">Cambiar mensaje</button>
+      <p id="message" class="message">Todo está cargando correctamente.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario dinamico</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/dinamico.js" defer></script>
+  </head>
+  <body>
+    <main class="card">
+      <p class="eyebrow">Nivel 3</p>
+      <h1>Formulario dinamico sin recarga</h1>
+      <p>Escribe tu nombre y recibe un saludo desde el servidor usando fetch.</p>
+      <form id="dynamic-form" class="contact-form">
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required />
+
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="response" class="message" aria-live="polite"></p>
+      <nav style="margin-top: 1.25rem;">
+        <a href="/">Inicio</a>
+      </nav>
+    </main>
+  </body>
+</html>

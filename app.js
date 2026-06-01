@@ -31,6 +31,13 @@ const products = [
   { id: 3, name: 'Mochila', price: 24.9 },
   { id: 4, name: 'Regla', price: 2.0 }
 ];
+const phrases = [
+  'El codigo limpio se lee como una historia.',
+  'Pequenos pasos llevan a grandes cambios.',
+  'La practica constante supera al talento.',
+  'Depurar es parte del aprendizaje.',
+  'Un problema dificil se resuelve dividiendolo.'
+];
 
 const escapeHtml = (value) =>
   String(value)
@@ -266,6 +273,31 @@ app.get('/estilos', (req, res) => {
 
   app.get('/api/productos', (req, res) => {
     res.json(products);
+  });
+
+  app.post('/api/contacto', (req, res) => {
+    const { name, message } = req.body;
+    const safeName = (name || 'amigo').trim() || 'amigo';
+    const safeMessage = (message || '').trim();
+
+    res.json({
+      success: true,
+      message: `Hola, ${safeName}. Recibimos tu mensaje${safeMessage ? `: ${safeMessage}` : ''}.`
+    });
+  });
+
+  app.post('/api/saludo', (req, res) => {
+    const { name } = req.body;
+    const safeName = (name || 'amigo').trim() || 'amigo';
+
+    res.json({
+      message: `Hola, ${safeName}. Bienvenido al formulario dinamico sin recarga.`
+    });
+  });
+
+  app.get('/frase', (req, res) => {
+    const index = Math.floor(Math.random() * phrases.length);
+    res.json({ phrase: phrases[index] });
   });
 
   app.use(express.static(path.join(__dirname, 'public')));
